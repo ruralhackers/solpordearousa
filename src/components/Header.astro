@@ -1,0 +1,29 @@
+---
+import { localizedPath, type Locale } from '../i18n/content';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+
+const langs: { code: Locale; href: string; label: string }[] = [
+  { code: 'es', href: '/', label: 'ES' },
+  { code: 'en', href: '/en/', label: 'EN' },
+  { code: 'gl', href: '/gl/', label: 'GL' },
+];
+
+const home = localizedPath(locale);
+---
+
+<header class="header">
+  <div class="header__inner">
+    <a class="brand" href={home}>Solpor <span>de Arousa</span></a>
+    <nav class="nav">
+      <div class="langswitch">
+        {langs.map((l) => (
+          <a href={l.href} class={l.code === locale ? 'active' : ''}>{l.label}</a>
+        ))}
+      </div>
+    </nav>
+  </div>
+</header>

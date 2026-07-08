@@ -1,0 +1,31 @@
+---
+import { t, CONTACT, type Locale } from '../i18n/content';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const tr = t[locale];
+
+const waMsg = encodeURIComponent(tr.book.whatsappMsg);
+const waHref = `https://wa.me/${CONTACT.whatsapp}?text=${waMsg}`;
+---
+
+<section class="hero">
+  <img
+    class="hero__bg"
+    src="/images/vista-atardecer-ria-arousa.jpg"
+    alt={locale === 'en' ? 'Sunset over the Ría de Arousa from Solpor de Arousa' : 'Solpor sobre a Ría de Arousa desde Solpor de Arousa'}
+    fetchpriority="high"
+  />
+  <div class="container hero__content">
+    <p class="hero__eyebrow">{tr.hero.eyebrow}</p>
+    <h1>{tr.hero.title}</h1>
+    <p class="hero__subtitle">{tr.hero.subtitle}</p>
+    <span class="hero__price">{tr.hero.price}</span>
+    <div class="hero__actions">
+      <a class="btn btn--primary" href={waHref} target="_blank" rel="noopener">{tr.hero.bookWhatsapp}</a>
+      <a class="btn btn--ghost" href={CONTACT.phoneHref}>{tr.hero.call}</a>
+    </div>
+  </div>
+</section>

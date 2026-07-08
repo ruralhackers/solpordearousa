@@ -1,0 +1,70 @@
+---
+import { t, gallery, type Locale } from '../i18n/content';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const tr = t[locale];
+---
+
+<section class="section" id="galeria">
+  <div class="container">
+    <p class="eyebrow">Solpor de Arousa</p>
+    <h2 class="section-title">{tr.gallery.heading}</h2>
+    <div class="gallery__grid" id="gallery">
+      {gallery.map((img, i) => (
+        <figure class="gallery__item" data-index={i}>
+          <img src={img.src} alt={img[locale]} loading="lazy" />
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>
+
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lightbox__close" id="lb-close" aria-label="Close">&times;</button>
+  <button class="lightbox__nav lightbox__nav--prev" id="lb-prev" aria-label="Previous">&#8249;</button>
+  <img id="lb-img" src="" alt="" />
+  <button class="lightbox__nav lightbox__nav--next" id="lb-next" aria-label="Next">&#8250;</button>
+</div>
+
+<script>
+  const images = Array.from(document.querySelectorAll<HTMLImageElement>('#gallery img'));
+  const lightbox = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lb-img') as HTMLImageElement | null;
+  let current = 0;
+
+  function show(index: number) {
+    if (!lbImg || images.length === 0) return;
+    current = (index + images.length) % images.length;
+    const src = images[current].getAttribute('src') || '';
+    lbImg.setAttribute('src', src);
+    lbImg.setAttribute('alt', images[current].getAttribute('alt') || '');
+  }
+
+  function open(index: number) {
+    show(index);
+    lightbox?.classList.add('open');
+    lightbox?.setAttribute('aria-hidden', 'false');
+  }
+
+  function close() {
+    lightbox?.classList.remove('open');
+    lightbox?.setAttribute('aria-hidden', 'true');
+  }
+
+  images.forEach((img, i) => img.addEventListener('click', () => open(i)));
+  document.getElementById('lb-close')?.addEventListener('click', close);
+  document.getElementById('lb-prev')?.addEventListener('click', () => show(current - 1));
+  document.getElementById('lb-next')?.addEventListener('click', () => show(current + 1));
+  lightbox?.addEventListener('click', (e) => {
+    if (e.target === lightbox) close();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox?.classList.contains('open')) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowLeft') show(current - 1);
+    if (e.key === 'ArrowRight') show(current + 1);
+  });
+</script>

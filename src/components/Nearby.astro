@@ -1,0 +1,28 @@
+---
+import { t, type Locale } from '../i18n/content';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const tr = t[locale];
+---
+
+<section class="section section--alt" id="entorno">
+  <div class="container">
+    <p class="eyebrow">Rías Baixas · Galicia</p>
+    <h2 class="section-title">{tr.nearby.heading}</h2>
+    <p class="nearby__intro">{tr.nearby.intro}</p>
+    <div class="nearby__grid">
+      {tr.nearby.items.map((item) => (
+        <article class="nearby__card">
+          <h3>
+            <span>{item.name}</span>
+            <span class="nearby__dist">{item.dist}</span>
+          </h3>
+          <p>{item.desc}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

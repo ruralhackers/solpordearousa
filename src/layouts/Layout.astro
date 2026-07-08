@@ -1,0 +1,92 @@
+---
+import '../styles/global.css';
+import { CONTACT, type Locale } from '../i18n/content';
+
+interface Props {
+  locale: Locale;
+  title: string;
+  description: string;
+}
+
+const { locale, title, description } = Astro.props;
+const site = 'https://solpordearousa.com';
+const ogImage = `${site}/images/vista-atardecer-ria-arousa.jpg`;
+
+const alternates: Record<Locale, string> = {
+  es: `${site}/`,
+  en: `${site}/en/`,
+  gl: `${site}/gl/`,
+};
+const canonical = alternates[locale];
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'LodgingBusiness',
+  name: 'Solpor de Arousa',
+  description,
+  url: canonical,
+  image: ogImage,
+  telephone: CONTACT.phone,
+  priceRange: '€€',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Rúa Pedroso, 46',
+    addressLocality: 'Bamio, Vilagarcía de Arousa',
+    postalCode: '36618',
+    addressRegion: 'Pontevedra',
+    addressCountry: 'ES',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: CONTACT.coords.lat,
+    longitude: CONTACT.coords.lng,
+  },
+  petsAllowed: false,
+  numberOfRooms: 3,
+  amenityFeature: [
+    { '@type': 'LocationFeatureSpecification', name: 'Private pool', value: true },
+    { '@type': 'LocationFeatureSpecification', name: 'Jacuzzi', value: true },
+    { '@type': 'LocationFeatureSpecification', name: 'Sea view', value: true },
+    { '@type': 'LocationFeatureSpecification', name: 'Barbecue', value: true },
+    { '@type': 'LocationFeatureSpecification', name: 'Parking', value: true },
+  ],
+};
+---
+
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    <link rel="alternate" hreflang="es" href={alternates.es} />
+    <link rel="alternate" hreflang="en" href={alternates.en} />
+    <link rel="alternate" hreflang="gl" href={alternates.gl} />
+    <link rel="alternate" hreflang="x-default" href={alternates.es} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Solpor de Arousa" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content={locale === 'es' ? 'es_ES' : locale === 'gl' ? 'gl_ES' : 'en_GB'} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Source+Sans+3:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

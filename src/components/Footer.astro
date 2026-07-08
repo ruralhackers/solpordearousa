@@ -1,0 +1,36 @@
+---
+import { t, CONTACT, type Locale } from '../i18n/content';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const tr = t[locale];
+const year = new Date().getFullYear();
+const mapsHref = `https://www.google.com/maps/search/?api=1&query=${CONTACT.mapsQuery}`;
+---
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <div>
+      <div class="footer__brand">Solpor de Arousa</div>
+      <p>{tr.footer.tagline}</p>
+    </div>
+    <div>
+      <p>
+        <a href={mapsHref} target="_blank" rel="noopener">{CONTACT.address}</a>
+      </p>
+      <p>
+        <a href={CONTACT.phoneHref}>{CONTACT.phone}</a>
+      </p>
+    </div>
+    <div class="langswitch">
+      <a href="/" class={locale === 'es' ? 'active' : ''}>ES</a>
+      <a href="/en/" class={locale === 'en' ? 'active' : ''}>EN</a>
+      <a href="/gl/" class={locale === 'gl' ? 'active' : ''}>GL</a>
+    </div>
+  </div>
+  <div class="container footer__bottom">
+    &copy; {year} Solpor de Arousa. {tr.footer.rights}
+  </div>
+</footer>
