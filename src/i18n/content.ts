@@ -6,7 +6,7 @@ export const CONTACT = {
   phone: '+34 620 06 76 10',
   phoneHref: 'tel:+34620067610',
   whatsapp: '34620067610',
-  price: 400,
+  price: 300,
   capacity: 8,
   address: 'Rúa Pedroso, 46, 36618 Bamio, Pontevedra',
   mapsQuery: 'R%C3%BAa+Pedroso+46+36618+Bamio+Pontevedra',
@@ -39,13 +39,13 @@ export const t = {
     nav: { house: 'La casa', amenities: 'Comodidades', gallery: 'Galería', nearby: 'Entorno', book: 'Reservar' },
     meta: {
       title: 'Solpor de Arousa · Casa rural en Bamio, Vilagarcía',
-      description: 'Casa rural para 8 personas en Bamio con piscina, jacuzzi y vistas a la Ría de Arousa. 400 €/día, casa completa. Reserva directa.',
+      description: 'Casa rural para 8 personas en Bamio con piscina, jacuzzi y vistas a la Ría de Arousa. 300 €/día, casa completa. Reserva directa.',
     },
     hero: {
       eyebrow: 'Casa rural · Bamio, Ría de Arousa',
       title: 'Solpor de Arousa',
       subtitle: 'Atardeceres sobre la ría, piedra gallega y calma en Bamio. Casa completa para hasta 8 personas.',
-      price: 'Desde 400 €/día · Casa completa',
+      price: 'Desde 300 €/día · Casa completa',
       bookWhatsapp: 'Reservar por WhatsApp',
       call: 'Llamar',
     },
@@ -78,7 +78,7 @@ export const t = {
     book: {
       heading: 'Reserva directa',
       body: 'Sin comisiones de plataformas. Escríbenos por WhatsApp o llámanos para consultar disponibilidad y fechas.',
-      price: '400 € / día',
+      price: '300 € / día',
       priceNote: 'Casa completa · hasta 8 personas',
       whatsapp: 'Reservar por WhatsApp',
       call: 'Llamar al +34 620 06 76 10',
@@ -95,13 +95,13 @@ export const t = {
     nav: { house: 'The house', amenities: 'Amenities', gallery: 'Gallery', nearby: 'Nearby', book: 'Book' },
     meta: {
       title: 'Solpor de Arousa · Rural house in Bamio, Vilagarcía',
-      description: 'Rural house for 8 in Bamio with pool, jacuzzi and Ría de Arousa views. €400/day, whole house. Direct booking.',
+      description: 'Rural house for 8 in Bamio with pool, jacuzzi and Ría de Arousa views. €300/day, whole house. Direct booking.',
     },
     hero: {
       eyebrow: 'Rural house · Bamio, Ría de Arousa',
       title: 'Solpor de Arousa',
       subtitle: 'Sunsets over the estuary, Galician stone and peace in Bamio. Whole house for up to 8 guests.',
-      price: 'From €400/day · Entire house',
+      price: 'From €300/day · Entire house',
       bookWhatsapp: 'Book via WhatsApp',
       call: 'Call',
     },
@@ -134,7 +134,7 @@ export const t = {
     book: {
       heading: 'Direct booking',
       body: 'No platform fees. Message us on WhatsApp or call to check availability and dates.',
-      price: '€400 / day',
+      price: '€300 / day',
       priceNote: 'Entire house · up to 8 guests',
       whatsapp: 'Book via WhatsApp',
       call: 'Call +34 620 06 76 10',
@@ -151,13 +151,13 @@ export const t = {
     nav: { house: 'A casa', amenities: 'Comodidades', gallery: 'Galería', nearby: 'Contorna', book: 'Reservar' },
     meta: {
       title: 'Solpor de Arousa · Casa rural en Bamio, Vilagarcía',
-      description: 'Casa rural para 8 persoas en Bamio con piscina, xacuzzi e vistas á Ría de Arousa. 400 €/día, casa completa. Reserva directa.',
+      description: 'Casa rural para 8 persoas en Bamio con piscina, xacuzzi e vistas á Ría de Arousa. 300 €/día, casa completa. Reserva directa.',
     },
     hero: {
       eyebrow: 'Casa rural · Bamio, Ría de Arousa',
       title: 'Solpor de Arousa',
       subtitle: 'Solpores sobre a ría, pedra galega e calma en Bamio. Casa completa para ata 8 persoas.',
-      price: 'Desde 400 €/día · Casa completa',
+      price: 'Desde 300 €/día · Casa completa',
       bookWhatsapp: 'Reservar por WhatsApp',
       call: 'Chamar',
     },
@@ -190,7 +190,7 @@ export const t = {
     book: {
       heading: 'Reserva directa',
       body: 'Sen comisións de plataformas. Escríbenos por WhatsApp ou chámanos para consultar dispoñibilidade e datas.',
-      price: '400 € / día',
+      price: '300 € / día',
       priceNote: 'Casa completa · ata 8 persoas',
       whatsapp: 'Reservar por WhatsApp',
       call: 'Chamar ao +34 620 06 76 10',
