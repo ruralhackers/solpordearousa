@@ -27,7 +27,6 @@ export const gallery: GalleryItem[] = [
   { src: '/images/habitacion-doble-2.jpg', es: 'Dormitorio doble', en: 'Double bedroom', gl: 'Dormitorio dobre' },
   { src: '/images/habitacion-triple.jpg', es: 'Habitación con tres camas', en: 'Triple bedroom', gl: 'Habitación con tres camas' },
   { src: '/images/habitacion-ninos.jpg', es: 'Espacio para familias', en: 'Family-friendly space', gl: 'Espazo para familias' },
-  { src: '/images/bano-jacuzzi.jpg', es: 'Baño con jacuzzi', en: 'Bathroom with jacuzzi', gl: 'Baño con xacuzzi' },
   { src: '/images/bano-ducha.jpg', es: 'Segundo baño con ducha', en: 'Second bathroom with shower', gl: 'Segundo baño con ducha' },
   { src: '/images/lavanderia.jpg', es: 'Zona de lavandería', en: 'Laundry area', gl: 'Zona de lavandaría' },
 ];
@@ -39,7 +38,7 @@ export const t = {
     nav: { house: 'La casa', amenities: 'Comodidades', gallery: 'Galería', nearby: 'Entorno', book: 'Reservar' },
     meta: {
       title: 'Solpor de Arousa · Casa rural en Bamio, Vilagarcía',
-      description: 'Casa rural para 8 personas en Bamio con piscina, jacuzzi y vistas a la Ría de Arousa. 300 €/día, casa completa. Reserva directa.',
+      description: 'Casa rural para 8 personas en Bamio con piscina y vistas a la Ría de Arousa. 300 €/día, casa completa. Reserva directa.',
     },
     hero: {
       eyebrow: 'Casa rural · Bamio, Ría de Arousa',
@@ -51,12 +50,12 @@ export const t = {
     },
     house: {
       heading: 'La casa',
-      body: 'Casa rural de piedra en Bamio, parroquia de Vilagarcía de Arousa, con vistas a la Ría de Arousa. Alquiler íntegro de la vivienda: salón-comedor amplio, tres dormitorios, dos baños (uno con jacuzzi), piscina privada, barbacoa de piedra y aparcamiento. Ideal para familias o grupos de amigos que busquen tranquilidad sin renunciar al mar, la gastronomía y el senderismo.',
+      body: 'Casa rural de piedra en Bamio, parroquia de Vilagarcía de Arousa, con vistas a la Ría de Arousa. Alquiler íntegro de la vivienda: salón-comedor amplio, tres dormitorios, dos baños, piscina privada, barbacoa de piedra y aparcamiento. Ideal para familias o grupos de amigos que busquen tranquilidad sin renunciar al mar, la gastronomía y el senderismo.',
     },
     amenities: {
       heading: 'Comodidades',
       items: [
-        'Hasta 8 personas', 'Casa completa', '3 habitaciones', '2 baños + jacuzzi',
+        'Hasta 8 personas', 'Casa completa', '3 habitaciones', '2 baños',
         'Piscina privada', 'Vistas al mar', 'Barbacoa de piedra', 'Aparcamiento', 'Lavadora',
       ],
     },
@@ -95,7 +94,7 @@ export const t = {
     nav: { house: 'The house', amenities: 'Amenities', gallery: 'Gallery', nearby: 'Nearby', book: 'Book' },
     meta: {
       title: 'Solpor de Arousa · Rural house in Bamio, Vilagarcía',
-      description: 'Rural house for 8 in Bamio with pool, jacuzzi and Ría de Arousa views. €300/day, whole house. Direct booking.',
+      description: 'Rural house for 8 in Bamio with pool and Ría de Arousa views. €300/day, whole house. Direct booking.',
     },
     hero: {
       eyebrow: 'Rural house · Bamio, Ría de Arousa',
@@ -107,12 +106,12 @@ export const t = {
     },
     house: {
       heading: 'The house',
-      body: 'A stone rural house in Bamio, Vilagarcía de Arousa, with views over the Ría de Arousa estuary. Entire property rental: spacious living-dining area, three bedrooms, two bathrooms (one with jacuzzi), private pool, stone barbecue and parking. Perfect for families or groups who want peace and quiet without giving up the sea, local food and hiking.',
+      body: 'A stone rural house in Bamio, Vilagarcía de Arousa, with views over the Ría de Arousa estuary. Entire property rental: spacious living-dining area, three bedrooms, two bathrooms, private pool, stone barbecue and parking. Perfect for families or groups who want peace and quiet without giving up the sea, local food and hiking.',
     },
     amenities: {
       heading: 'Amenities',
       items: [
-        'Up to 8 guests', 'Entire house', '3 bedrooms', '2 bathrooms + jacuzzi',
+        'Up to 8 guests', 'Entire house', '3 bedrooms', '2 bathrooms',
         'Private pool', 'Sea views', 'Stone barbecue', 'Parking', 'Washing machine',
       ],
     },
@@ -151,7 +150,7 @@ export const t = {
     nav: { house: 'A casa', amenities: 'Comodidades', gallery: 'Galería', nearby: 'Contorna', book: 'Reservar' },
     meta: {
       title: 'Solpor de Arousa · Casa rural en Bamio, Vilagarcía',
-      description: 'Casa rural para 8 persoas en Bamio con piscina, xacuzzi e vistas á Ría de Arousa. 300 €/día, casa completa. Reserva directa.',
+      description: 'Casa rural para 8 persoas en Bamio con piscina e vistas á Ría de Arousa. 300 €/día, casa completa. Reserva directa.',
     },
     hero: {
       eyebrow: 'Casa rural · Bamio, Ría de Arousa',
@@ -163,12 +162,12 @@ export const t = {
     },
     house: {
       heading: 'A casa',
-      body: 'Casa rural de pedra en Bamio, parroquia de Vilagarcía de Arousa, con vistas á Ría de Arousa. Alugueiro íntegro da vivenda: salón-comedor amplo, tres dormitorios, dous baños (un con xacuzzi), piscina privada, barbacoa de pedra e aparcamento. Ideal para familias ou grupos que busquen tranquilidade sen renunciar ao mar, á gastronomía e ao sendeirismo.',
+      body: 'Casa rural de pedra en Bamio, parroquia de Vilagarcía de Arousa, con vistas á Ría de Arousa. Alugueiro íntegro da vivenda: salón-comedor amplo, tres dormitorios, dous baños, piscina privada, barbacoa de pedra e aparcamento. Ideal para familias ou grupos que busquen tranquilidade sen renunciar ao mar, á gastronomía e ao sendeirismo.',
     },
     amenities: {
       heading: 'Comodidades',
       items: [
-        'Ata 8 persoas', 'Casa completa', '3 dormitorios', '2 baños + xacuzzi',
+        'Ata 8 persoas', 'Casa completa', '3 dormitorios', '2 baños',
         'Piscina privada', 'Vistas ao mar', 'Barbacoa de pedra', 'Aparcamento', 'Lavadora',
       ],
     },

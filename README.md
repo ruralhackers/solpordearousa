@@ -11,7 +11,7 @@ Built with [Astro](https://astro.build/). Multilingual: Spanish (default), Engli
 - **Rental:** whole house only
 - **Price:** €300 / day
 - **Contact / WhatsApp:** +34 620 06 76 10
-- Features: 3 bedrooms, 2 bathrooms (one with jacuzzi), private pool, stone barbecue, sea views, parking.
+- Features: 3 bedrooms, 2 bathrooms, private pool, stone barbecue, sea views, parking.
 
 ## Languages / routes
 
