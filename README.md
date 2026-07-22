@@ -9,7 +9,6 @@ Built with [Astro](https://astro.build/). Multilingual: Spanish (default), Engli
 - **Address:** Rúa Pedroso, 46, 36618 Bamio, Pontevedra
 - **Capacity:** up to 8 guests
 - **Rental:** whole house only
-- **Price:** €300 / day
 - **Contact / WhatsApp:** +34 620 06 76 10
 - Features: 3 bedrooms, 2 bathrooms, private pool, stone barbecue, sea views, parking.
 

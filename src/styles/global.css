@@ -263,21 +263,11 @@ img {
   color: rgba(255, 255, 255, 0.92);
 }
 
-.hero__price {
-  display: inline-block;
-  background: rgba(18, 41, 63, 0.55);
-  border: 1px solid rgba(240, 197, 107, 0.5);
-  padding: 0.5rem 1rem;
-  border-radius: 999px;
-  font-weight: 700;
-  margin-bottom: 1.75rem;
-  font-size: 0.95rem;
-}
-
 .hero__actions {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
+  margin-top: 0.25rem;
 }
 
 /* House */
@@ -507,15 +497,10 @@ img {
   text-align: center;
 }
 
-.book__price {
+.book__note {
   font-family: var(--font-head);
-  font-size: 3rem;
+  font-size: 1.35rem;
   color: var(--gold);
-  line-height: 1;
-}
-
-.book__price-note {
-  color: rgba(255, 255, 255, 0.7);
   margin-bottom: 1.5rem;
 }
 
