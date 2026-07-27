@@ -22,10 +22,12 @@ export const gallery: GalleryItem[] = [
   { src: '/images/barbacoa-piedra.jpg', es: 'Barbacoa de piedra tradicional', en: 'Traditional stone barbecue', gl: 'Barbacoa de pedra tradicional' },
   { src: '/images/salon-comedor-vista.jpg', es: 'Salón-comedor con vistas', en: 'Living-dining room with views', gl: 'Salón-comedor con vistas' },
   { src: '/images/comedor-interior.jpg', es: 'Comedor interior', en: 'Dining area', gl: 'Comedor interior' },
+  { src: '/images/cocina.jpg', es: 'Cocina', en: 'Kitchen', gl: 'Cociña' },
   { src: '/images/habitacion-doble-1.jpg', es: 'Dormitorio doble', en: 'Double bedroom', gl: 'Dormitorio dobre' },
   { src: '/images/habitacion-doble-2.jpg', es: 'Dormitorio doble', en: 'Double bedroom', gl: 'Dormitorio dobre' },
   { src: '/images/habitacion-triple.jpg', es: 'Habitación con tres camas', en: 'Triple bedroom', gl: 'Habitación con tres camas' },
   { src: '/images/habitacion-ninos.jpg', es: 'Espacio para familias', en: 'Family-friendly space', gl: 'Espazo para familias' },
+  { src: '/images/bano-principal.jpg', es: 'Baño principal', en: 'Main bathroom', gl: 'Baño principal' },
   { src: '/images/bano-ducha.jpg', es: 'Segundo baño con ducha', en: 'Second bathroom with shower', gl: 'Segundo baño con ducha' },
   { src: '/images/lavanderia.jpg', es: 'Zona de lavandería', en: 'Laundry area', gl: 'Zona de lavandaría' },
 ];
