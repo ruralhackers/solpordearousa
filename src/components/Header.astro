@@ -1,27 +1,51 @@
 ---
-import { localizedPath, type Locale } from '../i18n/content';
+import { localizedPath, t, type Locale } from '../i18n/content';
 
 interface Props {
   locale: Locale;
 }
 const { locale } = Astro.props;
+const tr = t[locale];
 
-const langs: { code: Locale; href: string; label: string }[] = [
-  { code: 'es', href: '/', label: 'ES' },
-  { code: 'en', href: '/en/', label: 'EN' },
-  { code: 'gl', href: '/gl/', label: 'GL' },
+const langs: { code: Locale; href: string; label: string; name: string }[] = [
+  { code: 'es', href: '/', label: 'ES', name: 'Español' },
+  { code: 'en', href: '/en/', label: 'EN', name: 'English' },
+  { code: 'gl', href: '/gl/', label: 'GL', name: 'Galego' },
 ];
 
 const home = localizedPath(locale);
+
+const sections = [
+  { href: '#casa', label: tr.nav.house },
+  { href: '#comodidades', label: tr.nav.amenities },
+  { href: '#galeria', label: tr.nav.gallery },
+  { href: '#entorno', label: tr.nav.nearby },
+  { href: '#faq', label: tr.nav.faq },
+];
 ---
 
 <header class="header">
   <div class="header__inner">
     <a class="brand" href={home}>Solpor <span>de Arousa</span></a>
-    <nav class="nav">
-      <div class="langswitch">
+    <nav class="nav" aria-label={tr.a11y.mainNav}>
+      <ul class="nav__links">
+        {sections.map((s) => (
+          <li><a href={s.href}>{s.label}</a></li>
+        ))}
+      </ul>
+      <a class="nav__cta" href="#reservar">{tr.nav.book}</a>
+      <div class="langswitch" role="group" aria-label={tr.a11y.langNav}>
         {langs.map((l) => (
-          <a href={l.href} class={l.code === locale ? 'active' : ''}>{l.label}</a>
+          <a
+            href={l.href}
+            hreflang={l.code}
+            lang={l.code}
+            title={l.name}
+            class={l.code === locale ? 'active' : ''}
+            aria-current={l.code === locale ? 'true' : undefined}
+          >
+            {l.label}
+          </a>
         ))}
       </div>
     </nav>

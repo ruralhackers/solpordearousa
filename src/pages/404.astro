@@ -1,0 +1,22 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { t } from '../i18n/content';
+
+const locale = 'es' as const;
+const tr = t[locale];
+---
+
+<Layout locale={locale} title={tr.notFound.title} description={tr.notFound.body} noindex>
+  <Header locale={locale} />
+  <main id="contenido" class="section notfound">
+    <div class="container">
+      <p class="eyebrow">404</p>
+      <h1 class="section-title">{tr.notFound.heading}</h1>
+      <p class="notfound__body">{tr.notFound.body}</p>
+      <a class="btn btn--outline" href="/">{tr.notFound.cta}</a>
+    </div>
+  </main>
+  <Footer locale={locale} />
+</Layout>

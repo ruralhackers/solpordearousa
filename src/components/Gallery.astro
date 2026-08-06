@@ -1,4 +1,5 @@
 ---
+import { Image, getImage } from 'astro:assets';
 import { t, gallery, type Locale } from '../i18n/content';
 
 interface Props {
@@ -6,6 +7,16 @@ interface Props {
 }
 const { locale } = Astro.props;
 const tr = t[locale];
+
+// The lightbox needs a bigger file than the grid thumbnail, so each item carries
+// a data-full URL instead of reusing the (small) responsive thumbnail src.
+const items = await Promise.all(
+  gallery.map(async (img) => ({
+    image: img.image,
+    alt: img[locale],
+    full: (await getImage({ src: img.image, width: 1400, format: 'webp', quality: 78 })).src,
+  })),
+);
 ---
 
 <section class="section" id="galeria">
@@ -13,34 +24,51 @@ const tr = t[locale];
     <p class="eyebrow">Solpor de Arousa</p>
     <h2 class="section-title">{tr.gallery.heading}</h2>
     <div class="gallery__grid" id="gallery">
-      {gallery.map((img, i) => (
-        <figure class="gallery__item" data-index={i}>
-          <img src={img.src} alt={img[locale]} loading="lazy" />
-        </figure>
+      {items.map((item, i) => (
+        <button
+          type="button"
+          class="gallery__item"
+          data-index={i}
+          data-full={item.full}
+          aria-label={`${tr.gallery.openLabel}: ${item.alt}`}
+        >
+          {/* Every 6th tile spans 2 columns and 2 rows (see .gallery__item:nth-child(6n + 1)),
+              so it needs a wider candidate set than the regular tiles. */}
+          <Image
+            src={item.image}
+            widths={i % 6 === 0 ? [700, 1000, 1400] : [400, 700, 1000]}
+            sizes={i % 6 === 0 ? '(min-width: 820px) 66vw, 100vw' : '(min-width: 820px) 33vw, 100vw'}
+            format="webp"
+            quality={72}
+            alt={item.alt}
+            loading="lazy"
+          />
+        </button>
       ))}
     </div>
   </div>
 </section>
 
 <div class="lightbox" id="lightbox" aria-hidden="true">
-  <button class="lightbox__close" id="lb-close" aria-label="Close">&times;</button>
-  <button class="lightbox__nav lightbox__nav--prev" id="lb-prev" aria-label="Previous">&#8249;</button>
+  <button class="lightbox__close" id="lb-close" aria-label={tr.lightbox.close}>&times;</button>
+  <button class="lightbox__nav lightbox__nav--prev" id="lb-prev" aria-label={tr.lightbox.prev}>&#8249;</button>
   <img id="lb-img" src="" alt="" />
-  <button class="lightbox__nav lightbox__nav--next" id="lb-next" aria-label="Next">&#8250;</button>
+  <button class="lightbox__nav lightbox__nav--next" id="lb-next" aria-label={tr.lightbox.next}>&#8250;</button>
 </div>
 
 <script>
-  const images = Array.from(document.querySelectorAll<HTMLImageElement>('#gallery img'));
+  const triggers = Array.from(document.querySelectorAll<HTMLButtonElement>('#gallery .gallery__item'));
   const lightbox = document.getElementById('lightbox');
   const lbImg = document.getElementById('lb-img') as HTMLImageElement | null;
   let current = 0;
 
   function show(index: number) {
-    if (!lbImg || images.length === 0) return;
-    current = (index + images.length) % images.length;
-    const src = images[current].getAttribute('src') || '';
-    lbImg.setAttribute('src', src);
-    lbImg.setAttribute('alt', images[current].getAttribute('alt') || '');
+    if (!lbImg || triggers.length === 0) return;
+    current = (index + triggers.length) % triggers.length;
+    const trigger = triggers[current];
+    const img = trigger.querySelector('img');
+    lbImg.setAttribute('src', trigger.dataset.full || img?.getAttribute('src') || '');
+    lbImg.setAttribute('alt', img?.getAttribute('alt') || '');
   }
 
   function open(index: number) {
@@ -54,7 +82,7 @@ const tr = t[locale];
     lightbox?.setAttribute('aria-hidden', 'true');
   }
 
-  images.forEach((img, i) => img.addEventListener('click', () => open(i)));
+  triggers.forEach((trigger, i) => trigger.addEventListener('click', () => open(i)));
   document.getElementById('lb-close')?.addEventListener('click', close);
   document.getElementById('lb-prev')?.addEventListener('click', () => show(current - 1));
   document.getElementById('lb-next')?.addEventListener('click', () => show(current + 1));
