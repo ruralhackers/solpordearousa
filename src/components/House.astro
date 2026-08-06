@@ -1,5 +1,6 @@
 ---
-import { t, CONTACT, type Locale } from '../i18n/content';
+import { Image } from 'astro:assets';
+import { t, CONTACT, houseImage, type Locale } from '../i18n/content';
 
 interface Props {
   locale: Locale;
@@ -15,11 +16,21 @@ const mapsHref = `https://www.google.com/maps/search/?api=1&query=${CONTACT.maps
       <p class="eyebrow">{tr.hero.eyebrow}</p>
       <h2 class="section-title">{tr.house.heading}</h2>
       <p class="house__body">{tr.house.body}</p>
+      <p class="house__body">{tr.house.body2}</p>
       <a class="house__address" href={mapsHref} target="_blank" rel="noopener">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
         {CONTACT.address}
       </a>
     </div>
-    <img class="house__img" src="/images/fachada-exterior-atardecer.jpg" alt={tr.house.heading} loading="lazy" />
+    <Image
+      class="house__img"
+      src={houseImage}
+      widths={[480, 800, 1100]}
+      sizes="(min-width: 820px) 45vw, 100vw"
+      format="webp"
+      quality={75}
+      alt={tr.a11y.houseAlt}
+      loading="lazy"
+    />
   </div>
 </section>

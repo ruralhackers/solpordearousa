@@ -1,0 +1,14 @@
+# Netlify cache headers. Netlify's default is `max-age=0, must-revalidate`,
+# which makes the browser re-check every photo and font on each visit.
+
+# Astro emits content-hashed filenames here (CSS, JS and optimized images),
+# so these can be cached forever safely.
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Self-hosted fonts: rename the file if the font is ever replaced.
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/favicon.svg
+  Cache-Control: public, max-age=604800

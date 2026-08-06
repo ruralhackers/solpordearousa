@@ -1,5 +1,6 @@
 ---
-import { t, CONTACT, type Locale } from '../i18n/content';
+import { Image } from 'astro:assets';
+import { t, CONTACT, heroImage, type Locale } from '../i18n/content';
 
 interface Props {
   locale: Locale;
@@ -12,11 +13,16 @@ const waHref = `https://wa.me/${CONTACT.whatsapp}?text=${waMsg}`;
 ---
 
 <section class="hero">
-  <img
+  <Image
     class="hero__bg"
-    src="/images/vista-atardecer-ria-arousa.jpg"
-    alt={locale === 'en' ? 'Sunset over the Ría de Arousa from Solpor de Arousa' : 'Solpor sobre a Ría de Arousa desde Solpor de Arousa'}
+    src={heroImage}
+    widths={[640, 1024, 1536]}
+    sizes="100vw"
+    format="webp"
+    quality={72}
+    alt={tr.a11y.heroAlt}
     fetchpriority="high"
+    loading="eager"
   />
   <div class="container hero__content">
     <p class="hero__eyebrow">{tr.hero.eyebrow}</p>

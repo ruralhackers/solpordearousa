@@ -1,0 +1,27 @@
+---
+import { t, type Locale } from '../i18n/content';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const tr = t[locale];
+---
+
+<section class="section" id="faq">
+  <div class="container">
+    <p class="eyebrow">Solpor de Arousa</p>
+    <h2 class="section-title">{tr.faq.heading}</h2>
+    <div class="faq__list">
+      {tr.faq.items.map((item, i) => (
+        <details class="faq__item" open={i === 0}>
+          <summary>
+            <h3>{item.q}</h3>
+            <span class="faq__marker" aria-hidden="true"></span>
+          </summary>
+          <p>{item.a}</p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
