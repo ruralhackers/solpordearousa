@@ -21,6 +21,7 @@ export const gallery: GalleryItem[] = [
   { src: '/images/piscina-exterior.jpg', es: 'Piscina privada en el jardín', en: 'Private pool in the garden', gl: 'Piscina privada no xardín' },
   { src: '/images/barbacoa-piedra.jpg', es: 'Barbacoa de piedra tradicional', en: 'Traditional stone barbecue', gl: 'Barbacoa de pedra tradicional' },
   { src: '/images/salon-comedor-vista.jpg', es: 'Salón-comedor con vistas', en: 'Living-dining room with views', gl: 'Salón-comedor con vistas' },
+  { src: '/images/entrada-pasillo.jpg', es: 'Entrada y pasillo', en: 'Entrance hallway', gl: 'Entrada e pasillo' },
   { src: '/images/comedor-interior.jpg', es: 'Comedor interior', en: 'Dining area', gl: 'Comedor interior' },
   { src: '/images/cocina.jpg', es: 'Cocina', en: 'Kitchen', gl: 'Cociña' },
   { src: '/images/habitacion-doble-1.jpg', es: 'Dormitorio doble', en: 'Double bedroom', gl: 'Dormitorio dobre' },
